@@ -23,7 +23,7 @@
             android:layout_weight="1" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/btnLater"
             android:layout_width="146dp"
             android:layout_height="wrap_content"
             android:text="Read LATER"

@@ -1,5 +1,9 @@
 package com.dian.a15017591.p10knowyourfacts;
 
+import android.app.Activity;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
@@ -8,8 +12,12 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
@@ -17,14 +25,17 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<Fragment> al;
     MyFragmentPagerAdapter adapter;
     ViewPager vPager;
+    Button btnLater;
+
+    int reqCode = 12345;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        vPager = (ViewPager) findViewById(R.id.viewpager1);
-
+        vPager = (ViewPager)findViewById(R.id.viewpager1);
+        btnLater = (Button)findViewById(R.id.btnLater);
         FragmentManager fm = getSupportFragmentManager();
 
         al = new ArrayList<Fragment>();
@@ -35,7 +46,29 @@ public class MainActivity extends AppCompatActivity {
         adapter = new MyFragmentPagerAdapter(fm, al);
 
         vPager.setAdapter(adapter);
+
+        btnLater.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Calendar cal = Calendar.getInstance();
+                cal.add(Calendar.MINUTE, 5);
+
+                Intent intent = new Intent(MainActivity.this,
+                        ScheduledNotificationReceiver.class);
+
+                PendingIntent pendingIntent = PendingIntent.getBroadcast(
+                        MainActivity.this, reqCode,
+                        intent, PendingIntent.FLAG_CANCEL_CURRENT);
+
+                AlarmManager am = (AlarmManager)
+                        getSystemService(Activity.ALARM_SERVICE);
+                am.set(AlarmManager.RTC_WAKEUP, cal.getTimeInMillis(),
+                        pendingIntent);
+            }
+
+        });
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -53,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
             if (vPager.getCurrentItem() > 0) {
                 int previousPage = vPager.getCurrentItem() - 1;
                 vPager.setCurrentItem(previousPage, true);
+                Toast.makeText(this, "", Toast.LENGTH_SHORT).show();
             }
         } else if (id == R.id.random) {
             Random rnd = new Random();
