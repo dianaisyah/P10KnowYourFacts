@@ -1,0 +1,46 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.dian.a15017591.p10knowyourfacts.Frag3">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nissan cars for ads/ racing normally use the number 23 because in Japanese, a 2 is pronounced 'ni' and a 3 is pronounced 'san'." />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="22dp" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Penguins have glands under their eyes to extract and secrete excess salt. These are powerful enough that they allow them to drink seawater as their primary water source." />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="22dp" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="The first man made object to break the sound barrier was the bull whip." />
+
+        <Button
+            android:id="@+id/btnChg3"
+            android:layout_width="156dp"
+            android:layout_height="wrap_content"
+            android:text="Change Color" />
+    </LinearLayout>
+</FrameLayout>

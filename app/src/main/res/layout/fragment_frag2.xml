@@ -1,0 +1,46 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.dian.a15017591.p10knowyourfacts.Frag2">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="The Bible, the world's best-selling book, is also the world's most shoplifted book.  " />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="22dp" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="In the U.S.A over eleven thousand people (up until the end of 2003) have visited a tortilla chip that appears to have the face of Jesus Christ burned into it?" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="22dp" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Your tongue is the only muscle in your body that is attached at only one end." />
+
+        <Button
+            android:id="@+id/btnchg2"
+            android:layout_width="156dp"
+            android:layout_height="wrap_content"
+            android:text="Change Color" />
+    </LinearLayout>
+</FrameLayout>
